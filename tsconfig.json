@@ -1,0 +1,21 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "target": "es6",
+    "module": "commonjs",
+    "esModuleInterop": true,
+    "sourceMap": true,
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "outDir": "dist",
+    "typeRoots": ["node_modules/@types"],
+    "baseUrl": "./",
+    "paths": {
+        "@library/*": ["../library/*"],
+        "@v3/interfaces/*": ["server/api/v3/interfaces/*"],
+        "@v3/services/*": ["server/api/v3/services/*"]
+    }
+  },
+  "include": ["typings.d.ts", "./**/*.ts", "routes.ts"],
+  "exclude": ["node_modules", "./**/*.spec.ts"]
+}
