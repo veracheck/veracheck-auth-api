@@ -1,4 +1,4 @@
-export interface IMySQLInsertResponse {
+export interface InsertResponse {
     fieldCount: number;
     affectedRows: number;
     insertId: number;

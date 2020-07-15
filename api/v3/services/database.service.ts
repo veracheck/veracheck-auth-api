@@ -1,7 +1,7 @@
 import { createPool, Pool, MysqlError, FieldInfo } from 'mysql';
 import { Observable } from 'rxjs';
 
-import { IMySQLInsertResponse } from '../interfaces/mysql.insert.response.interface';
+import * as MySQL from '@v3/interfaces/mysql.interfaces';
 
 export class DatabaseService {
     pool: Pool = createPool({
@@ -42,7 +42,7 @@ export class DatabaseService {
         statement: string,
         values?: Array<any>,
         pool: Pool = this.pool
-    ): Observable<IMySQLInsertResponse> {
+    ): Observable<MySQL.InsertResponse> {
         return Observable.create(observer => {
             pool.query(
                 statement,

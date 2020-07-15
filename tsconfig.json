@@ -11,9 +11,8 @@
     "typeRoots": ["node_modules/@types"],
     "baseUrl": "./",
     "paths": {
-        "@library/*": ["../library/*"],
-        "@v3/interfaces/*": ["server/api/v3/interfaces/*"],
-        "@v3/services/*": ["server/api/v3/services/*"]
+        "@v3/interfaces/*": ["api/v3/interfaces/*"],
+        "@v3/services/*": ["api/v3/services/*"]
     }
   },
   "include": ["typings.d.ts", "./**/*.ts", "routes.ts"],

@@ -5,10 +5,10 @@ import path from 'path';
 import { readFile, readFileSync } from 'fs';
 import jwt from 'jsonwebtoken';
 
-import database from '../../services/database.service';
+import database from '@v3/services/database.service';
 
-import { IAuthState } from '@library/interfaces/authentication.state.interface';
-import { IMySQLInsertResponse } from '../../interfaces/mysql.insert.response.interface';
+import * as Authentication from '@v3/interfaces/authentication.state.interface';
+import * as MySQL from '@v3/interfaces/mysql.interfaces';
 
 /**
  *
@@ -59,7 +59,7 @@ export class AuthController {
      *
      * @param user
      */
-    loginSuccess(user): IAuthState {
+    loginSuccess(user): Authentication.State {
         return {
             online: true,
             user,
@@ -70,7 +70,7 @@ export class AuthController {
     /**
      *
      */
-    loginFailure(): IAuthState {
+    loginFailure(): Authentication.State {
         return {
             online: false,
             error: { login: 'Invalid Credentials!' }
@@ -138,7 +138,7 @@ export class AuthController {
                           req.body.ap.phone
                       ])
                       .pipe(
-                          map((data: IMySQLInsertResponse) => {
+                          map((data: MySQL.InsertResponse) => {
                               return data.insertId > 0 ? true : false;
                           })
                       )
